@@ -7,31 +7,14 @@ import BackspaceTwoToneIcon from '@material-ui/icons/BackspaceTwoTone';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import { deleteTodo, updateTodo } from '../redux/actionCreators'
 function TodoItem({todo}) {
-    // const [todoID, settodoID] = useState()
     const [update, setupdate] = useState(false)
-    const [Deleted , setDelete] = useState(false)
-    // const [DataName, setDataName] = useState('')
+    const Deleted = false
     const [name, setname] = useState()
     const dispatch = useDispatch()
     const updateDispatch = useDispatch();
     useEffect(() => {
         setname(todo.name)
     }, [todo.name])
-    // const handleTodo = () => {
-    //     settodoID(todo.id)
-    //      const localStorageData = JSON.parse(localStorage.getItem('todos'));
-    //      localStorageData.forEach(data => {
-    //             if(data.id === todo.id)
-    //             {
-    //                 console.log('7lwayat');
-    //                 console.log(data.id);
-    //                 console.log(data.name);
-    //                 setDataName(data.name)
-    //                 console.log();
-    //             }
-    //         });
-    //      console.log(localStorageData);
-    // }
     return (
         <div>
             <div className="row m-4">
@@ -58,10 +41,6 @@ function TodoItem({todo}) {
                                             ...todo,
                                             name : name
                                         }));
-                                        // if (update)
-                                        // {
-                                        //     setname(todo.name)
-                                        // }
                                         setupdate(!update)
                                         
                                     }}
@@ -75,9 +54,6 @@ function TodoItem({todo}) {
                     </div>
                     <DeleteRoundedIcon className="DeleteRoundedIcon col mx-2"
                         onClick={()=>dispatch(deleteTodo(todo.id))}
-                        // onClick = {() => {
-                        //     setDelete(!Deleted)
-                        // }}
                     />
                     </div>
                 </div>
